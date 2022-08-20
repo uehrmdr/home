@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	var time = timest.split(' ')[4]
 	var kyou = year+"_"+month+"_"+day;
 	var transaction_id = "id_" + kyou
-	var affiriation = 'おにぎり商店'
+	var affiliation = 'おにぎり商店'
 	var value = 0
 		for(i=0; i < productObj.length; i++){
 			value += productObj[i].price 
@@ -38,6 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	value = value
 	var shipping = 500
 	var coupon = 'sales001'
+	var tax = Math.floor(value/1.1)
 //ここまで
 
 //ここから会員情報
@@ -244,8 +245,6 @@ function login(){
 }
 function submit(){
 	var inner = document.querySelector('#sec01 > div > label > input[type=text]').value;
-	inner = String(inner).slice(0,1);
-	inner = String(inner).slice(inner.length,1);
 	dataLayer.push({
 		inner
 	});
