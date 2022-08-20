@@ -62,7 +62,7 @@
 		<h2><span>eコマース/GA4</span></h2>
 	</header>
 		<div class="innerS">
-			GA4のeコマース検証。このページ表示で商品一覧は発火。その他ボタンクリックで商品選択、商品詳細表示、カート追加、カート表示、決済開始、購入完了が発火。その他カスタムのdataLayer送信をしたい場合は枠内に入力しsendボタンをクリック。
+			GA4のeコマース検証。このページ表示で商品一覧は発火。その他ボタンクリックで商品選択、商品詳細表示、カート追加、カート表示、決済開始、購入完了が発火。その他カスタムのdataLayer送信をしたい場合はConsoleでたたいてください。
 
 		<form action="">
 			<button type="button" onclick="select_item()">商品選択</button>
@@ -89,15 +89,30 @@
 			<button type="button" onclick="refund()">キャンセル</button>
 		</form>
 		<br>
-		<p>任意のdataLayerを書き込めます</p>
-		<label>dataLayer.push({<input type="text" name="data1" value="'event':'evTracking'" />})</label>
-		<button type="button" onclick="submit()">書き込む</button>
+		<p>任意のdataLayerは、開発者ツール（F12キー押下　もしくは　右クリックで「検証」）を開き、</p>
+		<p>Consoleをタブを選択。以下のようなdataLayerを記述してEnterを押せばOK。</p>
+		<p>（成功したか確認するには、Consoleで「dataLayer」だけ打ってEnter）</p>
+		<textarea  cols="40" rows="7">dataLayer.push({
+'event':'evTracking',
+'evCategory':'aaa',
+'evAction':'bbb',
+'evLabel':'ccc'
+})</textarea>
+		<h3>dataLayer記述の注意点</h3>
+		<ul>
+			<li type="circle">複数のkeyがある場合は、末尾に「,（カンマ）」をつける</li>
+			<li type="circle">ただし、一番最後はカンマ不要</li>
+			<li type="circle">基本の形は「dataLayer.push({});」</li>
+			<li type="circle"><a href="https://developers.google.com/tag-platform/tag-manager/web/datalayer#use_a_data_layer_with_event_handlers" target="_blank">参考リンク</a></li>
+		</ul>
+		<a href="#devtool_console"><img src="images/devtool_console.png"></a>
+		<a id="devtool_console" href="#home" class="lb"><img src="images/devtool_console.png"></a>
 	</div>
 </section>
 <!-- // sec01 -->
 
 <!-- sec02 -->
-<section id="sec02">
+<!--<section id="sec02">
 	<header>
 		<h2><span>クリック系</span></h2>
 	</header>
@@ -112,7 +127,7 @@
 		<li><img src="images/photo08.jpg" width="426" height="418" alt=""></li>
 		<li><img src="images/photo09.jpg" width="426" height="418" alt=""></li>
 	</ul>
-</section>
+</section> -->
 <!-- // sec02 -->
 
 <!-- sec03 -->
@@ -124,8 +139,6 @@
 		<p>ユーザー情報格納</p>
 		<form action="">
 			<p>メンバーIDはCookieに格納されてるよ</p>
-			<label></label>
-			<input type="text">
 			<button type="submit" onclick="sign_in()">会員登録</button>
 		</form>
 		<form action="">
@@ -143,17 +156,17 @@
 	<div class="inner">
 		<ul class="col3">
 			<li>
-				<p class="img"><img src="images/logo01.png" width="170" height="106" alt=""></p>
-				<p>画像1</p>
-			</li>
+			<a href="https://appirits.com/">	<p class="img"><img src="images/logo01.png" width="170" height="106" alt=""></p>
+				<p>外部遷移：アピリッツ会社サイト</p>
+			</a></li>
 			<li>
-				<p class="img"><img src="images/logo02.png" width="170" height="106" alt=""></p>
-				<p>画像2</p>
-			</li>
+				<a href="https://uehrmdr.github.io/mysite/"><p class="img"><img src="images/logo02.png" width="170" height="106" alt=""></p>
+				<p>別の検証環境</p>
+			</a></li>
 			<li>
-				<p class="img"><img src="images/logo03.png" width="170" height="106" alt=""></p>
-				<p>画像3</p>
-			</li>
+				<a href="https://developers.google.com/tag-manager/ecommerce-ga4?hl=ja"><p class="img"><img src="images/logo03.png" width="170" height="106" alt=""></p>
+				<p>GA4 eコマースヘルプ</p>
+			</a></li>
 		</ul>
 	</div>
 </section>
