@@ -232,6 +232,24 @@ function sign_up(){
   	member_id: random
 	})
 }
+function login(){
+	if(!random){
+		alert('まずは会員登録ボタンを押してね')
+	}else{
+	dataLayer.push({
+  	event: "login",
+  	member_id: random
+	})
+}
+}
+function submit(){
+	var inner = document.querySelector('#sec01 > div > label > input[type=text]').value;
+	inner = String(inner).slice(0,1);
+	inner = String(inner).slice(inner.length,1);
+	dataLayer.push({
+		inner
+	});
+}
 
 
 $(function(){
